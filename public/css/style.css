@@ -1,0 +1,934 @@
+:root {
+  /* Colores modernos basados en vino */
+  --wine-primary: #5a1a26;
+  --wine-secondary: #7d2b3b;
+  --wine-accent: #9d4b53;
+  --wine-light: #e8c7cb;
+  --gold-primary: #c8a97e;
+  --gold-secondary: #e4c590;
+  --text-dark: #1a1a1a;
+  --text-light: #f8f8f8;
+  --bg-light: #fff9f5;
+  --glass-bg: rgba(255, 255, 255, 0.15);
+  --glass-border: rgba(255, 255, 255, 0.18);
+
+  /* Sombras modernas */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.15);
+
+  /* Bordes modernos */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: var(--text-dark);
+  background-color: var(--bg-light);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Header moderno con glassmorphism */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+header.scrolled {
+  padding: 1rem 5%;
+  background: rgba(90, 26, 38, 0.95);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-light);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+.logo img {
+  width: 75px;
+  height: 75px;
+  /* margin-top: 10px;
+  margin-left: 20px; */
+}
+
+.logo i {
+  color: var(--gold-primary);
+}
+
+/* Nav moderno con hover effects */
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold-primary);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a:hover {
+  color: var(--gold-primary);
+}
+
+.nav-cta {
+  background: var(--gold-primary);
+  color: var(--wine-primary) !important;
+  padding: 0.5rem 1.5rem;
+  border-radius: var(--radius-full);
+  transition: all 0.3s ease;
+}
+
+.nav-cta:hover {
+  background: var(--gold-secondary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.nav-cta::after {
+  display: none;
+}
+
+/* Hero section con video background */
+.hero {
+  background: url("../img/heroImg.webp") no-repeat center center;
+  background-size: cover;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  text-align: center;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(90, 26, 38, 0.7),
+    rgba(90, 26, 38, 0.9)
+  );
+  z-index: -1;
+}
+
+.hero-content {
+  /* max-width: 800px; */
+  padding: 0 2rem;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 1s ease;
+}
+
+.hero p {
+  font-size: clamp(1.5rem, 2vw, 1.25rem);
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+  animation: fadeInUp 1s ease 0.2s forwards;
+  opacity: 0;
+}
+
+/* Botones modernos con microinteracciones */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 2.2rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: var(--gold-primary);
+  color: var(--wine-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  background: var(--gold-secondary);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-light);
+  border: 2px solid var(--gold-primary);
+}
+
+.btn-secondary:hover {
+  background: rgba(200, 169, 126, 0.1);
+  transform: translateY(-3px);
+}
+
+.btn i {
+  transition: transform 0.3s ease;
+}
+
+.btn:hover i {
+  transform: translateX(3px);
+}
+
+/* Secciones modernas */
+section {
+  padding: 9rem 5%;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  color: var(--wine-primary);
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--gold-primary);
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--wine-accent);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Grid de productos moderno */
+.wine-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+/* Tarjeta de producto moderna */
+.wine-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+}
+
+.wine-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.wine-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--wine-primary);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.wine-img-container {
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.wine-img {
+  /* width: 50%; */
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.wine-img-container img{
+  display: block;
+  margin: auto;
+  border-radius: 20px;
+  padding: 10px;
+}
+.wine-card:hover .wine-img {
+  transform: scale(1.05);
+}
+
+.wine-info {
+  padding: 1.5rem;
+}
+
+.wine-category {
+  color: var(--gold-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.wine-name {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--wine-primary);
+}
+
+.wine-region {
+  color: var(--wine-accent);
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.wine-description {
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+.wine-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.wine-price {
+  font-weight: 700;
+  color: var(--wine-primary);
+  font-size: 1.2rem;
+}
+
+.wine-rating {
+  color: var(--gold-primary);
+  font-size: 0.9rem;
+}
+
+/*boton*/
+.wine-info .bottom-viewVine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0px 0px 0px;
+}
+.wine-info .vine-cta a {
+  text-decoration: none;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+}
+
+.wine-info .vine-cta a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold-primary);
+  transition: width 0.3s ease;
+}
+
+.wine-info .vine-cta a:hover::after {
+  width: 100%;
+}
+
+.wine-info .vine-cta a:hover {
+  color: var(--gold-primary);
+}
+
+.vine-cta {
+  text-decoration: none;
+  background: var(--gold-primary);
+  color: var(--wine-primary) !important;
+  padding: 0.5rem 1.5rem;
+  border-radius: var(--radius-full);
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.vine-cta:hover {
+  background: var(--gold-secondary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.vine-cta::after {
+  display: none;
+}
+
+/* Sección "Sobre nosotros" moderna */
+.about-section{
+  padding: 9rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-header-about{
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header-about h2{
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  color: var(--wine-primary);
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-header-about h2::after{
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--gold-primary);
+}
+
+.about-content{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.about-image{
+  flex: 1;
+  min-width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.about-image img{
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.about-image:hover img{
+  transform: scale(1.05);
+}
+
+.about-text{
+  flex: 1;
+  min-width: 300px;
+
+}
+
+.about-text h3{
+  font-size: 1.8rem;
+  color: var(--wine-primary);
+  margin-bottom: 1.5rem;
+}
+.about-text p{
+  color: var(--text-dark);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+
+}
+.mission-vision{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.card{
+  flex:1;
+  min-width: 300px;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  border-top: 4px solid var(--wine-primary);
+}
+
+.card h3{
+  color: var(--wine-primary);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+.card p{
+  color: var(--text-dark);
+  line-height: 1.7;
+}
+.nosotros {
+  margin-top: 3rem;
+}
+
+.nosotros .nosotros-about h2{
+  color:  var(--wine-primary);
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+
+.text-nosotros{
+  color: var(--text-dark);
+  text-align: justify;
+  line-height: 1.7;
+}
+
+.awards{
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.awards h3{
+  font-size: 1.8rem;
+  color: var(--wine-primary);
+  margin-bottom: 2rem;
+}
+.awards h4{
+  color: var(--wine-primary);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.awards-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.award-item{
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  width: 200px;
+  transition: transform 0.3s ease;
+}
+
+.award-item:hover{
+  transform: translateY(-10px);
+}
+
+.award-item img{
+  width: 155px;
+  height: 155px;
+  margin-bottom: 1rem;
+}
+
+.award-item h4{
+  color: var(--wine-primary);
+  margin-bottom: 0.5rem;
+  
+}
+
+.award-item p{
+  color: var(--text-dark);
+  font-size: 0.9rem;
+}
+/* .about {
+  background: linear-gradient(
+    135deg,
+    var(--wine-primary) 0%,
+    var(--wine-secondary) 100%
+  );
+  color: var(--text-light);
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-content h2 {
+  color: var(--text-light);
+}
+
+.about-content p {
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.about-image {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.stat-item {
+  text-align: center;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold-primary);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  opacity: 0.8;
+} */
+
+
+
+/* Footer moderno */
+footer {
+  background: var(--wine-primary);
+  color: var(--text-light);
+  padding: 4rem 5% 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+}
+
+.footer-about p {
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+}
+
+.footer-links h3,
+.footer-contact h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-links h3::after,
+.footer-contact h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--gold-primary);
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  color: var(--text-light);
+  text-decoration: none;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+  transform: translateX(5px);
+  color: var(--gold-primary);
+}
+
+.footer-contact p {
+  margin-bottom: 1rem;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-contact i {
+  color: var(--gold-primary);
+  width: 20px;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background: var(--gold-primary);
+  color: var(--wine-primary);
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+/* @media (max-width: 992px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  } 
+
+  .about-image {
+    order: -1;
+  } 
+} */
+@media screen and (max-width: 1292px) {
+  .logo {
+    font-size: 1rem;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  header {
+    padding: 1rem 5%;
+  }
+  .logo {
+    font-size: 0;
+  }
+  .logo img {
+    margin: 0px;
+  }
+  nav ul {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  section {
+    padding: 7rem 5%;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-input,
+  .btn {
+    width: 100%;
+  }
+
+  .about-content{
+    flex-direction: column;
+    margin-bottom: 0;
+
+  }
+
+  .section-header h2{
+    font-size: 2rem;
+  }
+
+  .about-text h3{
+    font-size: 1.5rem;
+  }
+
+  .nosotros .nosotros-about h2{
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .hero-content {
+    padding: 0 1rem;
+  }
+  .logo {
+    font-size: 0;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .wine-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+

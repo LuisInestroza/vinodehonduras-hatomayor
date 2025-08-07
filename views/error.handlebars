@@ -1,0 +1,40 @@
+<main>
+  <div class="error-container">
+    <div class="error-bg">404</div>
+    <div class="error-content">
+      <h1 class="error-title">404</h1>
+      <h2 class="error-subtitle">{{message}}</h2>
+      <p class="error-text">Parece que la página que buscas se ha evaporado como
+        el alcohol en una copa abierta. No te preocupes, puedes volver a nuestra
+        página principal o explorar nuestra selección de vinos y licores.</p>
+      <div
+        style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;"
+      >
+        <a href="/" class="btn btn-primary">
+          <i class="fas fa-home"></i>
+          Volver al inicio
+        </a>
+        <a
+          href="/#vinos"
+          class="btn btn-secondary"
+          style="background: transparent;
+                color: var(--wine-primary);
+                border: 2px solid var(--gold-primary);"
+        >
+          <i class="fas fa-wine-bottle"></i>
+          Explorar vinos
+        </a>
+        <a
+          href="/#licores"
+          class="btn btn-secondary"
+          style="background: transparent;
+                  color: var(--wine-primary);
+                  border: 2px solid var(--gold-primary);"
+        >
+          <i class="fas fa-wine-bottle"></i>
+          Explorar licores
+        </a>
+      </div>
+    </div>
+  </div>
+</main>

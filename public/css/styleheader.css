@@ -1,0 +1,99 @@
+/* Todos tus estilos originales aquí */
+/* ... */
+
+/* Añado solo los estilos necesarios para el responsive */
+
+/* Botón de menú móvil */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 2.5rem;
+  cursor: pointer;
+  z-index: 1001;
+  transition: opacity 0.3s ease;
+}
+
+/* Botón de cerrar menú */
+.close-menu-btn {
+  display: none;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 3rem;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+@media (max-width: 768px) {
+  /* Ocultar navegación normal en móvil */
+  nav ul:not(.mobile-active) {
+    display: none;
+  }
+  nav a {
+    font-size: 2rem;
+  }
+  /* Mostrar botón de menú en móvil */
+  .mobile-menu-btn {
+    display: block;
+    position: absolute;
+    right: 0;
+    padding: 0.8rem 5%;
+  }
+
+  /* Ocultar botón de menú cuando el menú está activo */
+  .mobile-menu-btn.menu-open {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Estilos para el menú móvil activo */
+  nav ul.mobile-active {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(90, 26, 38, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    margin: 0;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  /* Mostrar botón de cerrar cuando el menú está activo */
+  .mobile-active + .close-menu-btn {
+    display: block;
+  }
+
+  /* Ajustar el header en móvil */
+  header {
+    padding: 1rem 5%;
+  }
+
+  header.scrolled {
+    padding: 0.8rem 5%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

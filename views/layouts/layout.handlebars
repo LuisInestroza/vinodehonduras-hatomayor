@@ -1,0 +1,158 @@
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hato Mayor | Vino de Honduras</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/styleheader.css" />
+    <link rel="stylesheet" href="/css/styleCatalogo.css" />
+    <link rel="stylesheet" href="/css/styleError404.css" />
+    <link rel="stylesheet" href="/css/styleCarusel.css">
+    <link rel="shortcut icon" href="/img/logo.ico" type="image/x-icon" />
+
+  </head>
+  <body>
+    <!-- Header moderno con glassmorphism -->
+    {{#if barraInicio}}
+      <header id="header">
+        <a href="/" class="logo">
+          <img src="/img/logoHatoMayor.png" alt="" srcset="" />
+   
+        </a>
+
+        <!-- Botón de menú móvil -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <nav>
+          <ul id="navMenu">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/#vinos">Vinos</a></li>
+            <li><a href="/#licores">Licores</a></li>
+            <li><a href="/#sobre-nosotros">Nosotros</a></li>
+            <li><a href="/#contacto">Contacto</a></li>
+          </ul>
+          <!-- Botón para cerrar el menú (solo visible en móvil) -->
+          <button class="close-menu-btn" id="closeMenuBtn">
+            <i class="fas fa-times"></i>
+          </button>
+        </nav>
+      </header>
+    {{/if}}
+
+    {{#if barraProductos}}
+      <header id="header" style="background: rgba(90, 26, 38, 0.95)">
+        <a href="/" class="logo">
+          <img src="/img/logoHatoMayor.png" alt="" srcset="" />
+        </a>
+
+        <!-- Botón de menú móvil -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <nav>
+          <ul id="navMenu">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/#vinos">Vinos</a></li>
+            <li><a href="/#licores">Licores</a></li>
+            <li><a href="/#sobre-nosotros">Nosotros</a></li>
+            <li><a href="/#contacto">Contacto</a></li>
+          </ul>
+          <!-- Botón para cerrar el menú (solo visible en móvil) -->
+          <button class="close-menu-btn" id="closeMenuBtn">
+            <i class="fas fa-times"></i>
+          </button>
+        </nav>
+      </header>
+    {{/if}}
+
+    {{#if heroView}}
+      <!-- Hero section con video background -->
+      <section class="hero" id="inicio">
+        <div class="hero-content">
+          <h1>Vino de Honduras <br> HATO MAYOR </h1>
+          <p>"Nos tomamos el tiempo para que usted tome un buen vino."</p>
+          <div style="display: flex; gap: 1rem; justify-content: center">
+            <a href="/#vinos" class="btn btn-primary">Explorar vinos
+              <i class="fas fa-arrow-right"></i></a>
+            <a href="/#sobre-nosotros" class="btn btn-secondary">Conócenos</a>
+          </div>
+        </div>
+      </section>
+    {{/if}}
+
+    <div class="contendor-principal">
+      {{{body}}}
+    </div>
+    <!-- Footer -->
+
+    {{#if mostrarFooter}}
+
+      <footer id="contacto">
+        <div class="footer-grid container">
+          <div class="footer-about">
+            <a href="#inicio" class="footer-logo">
+              <i class="fas fa-wine-glass-alt"></i>
+              Hato Mayor
+            </a>
+            <p>
+              "Nos tomamos el tiempo para que usted tome un buen vino."
+            </p>
+            <div class="social-links">
+              <a href="https://www.facebook.com/vinodehondurashatomayor"><i
+                  class="fab fa-facebook-f"
+                ></i></a>
+              <a href="https://www.instagram.com/hatomayorhn/"><i
+                  class="fab fa-instagram"
+                ></i></a>
+
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <h3>Enlaces rápidos</h3>
+            <ul>
+              <li><a href="/#inicio">Inicio</a></li>
+              <li><a href="/#vinos">Nuestros vinos</a></li>
+              <li><a href="/#licores">Nuestros licores</a></li>
+              <li><a href="/#sobre-nosotros">Sobre nosotros</a></li>
+              <!-- <li><a href="#">Blog</a></li>
+            <li><a href="#">Tienda online</a></li> -->
+            </ul>
+          </div>
+
+          <div class="footer-contact">
+            <h3>Contacto</h3>
+            <p>
+              <i class="fas fa-map-marker-alt"></i>Siguatepeque, Comayagua,
+              Honduras, C.A.
+
+            </p>
+            <p><i class="fas fa-phone-alt"></i>
+              +504 2773-5835 / +504 9969-3231</p>
+            <p><i class="fas fa-envelope"></i> emavisapa@gmail.com</p>
+            <p><i class="fas fa-clock"></i> Lunes-Viernes: 09:00 AM - 05:00 PM</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 Hato Mayor. Todos los derechos reservados.</p>
+        </div>
+      </footer>
+    {{/if}}
+    <script src="/js/script.js"></script>
+    <script src="/js/scriptHeader.js"></script>
+  </body>
+</html>
