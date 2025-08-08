@@ -50,9 +50,11 @@ app.use((error, req, res, next) => {
   });
 });
 
-const host = "0.0.0.0";
-const port = process.env.PORT;
+module.exports = app;
 
-app.listen(port, host, () => {
-  console.log("Servidor Ejecutándose");
-});
+// const host = "0.0.0.0";
+// const port = process.env.PORT;
+
+// app.listen(port, host, () => {
+//   console.log("Servidor Ejecutándose");
+// });
