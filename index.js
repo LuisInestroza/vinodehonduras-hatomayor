@@ -10,7 +10,7 @@ const router = require("./routes/index");
 const crearError = require("http-errors");
 
 require("dotenv").config({
-  path: "variables.env",
+  path: ".env",
 });
 
 const app = express();
