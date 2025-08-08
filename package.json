@@ -4,8 +4,7 @@
   "description": "Aprendizaje con Node",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./index.js \"NODE_OPTIONS='--openssl-legacy-provider' ...",
-    "start": "concurrently \"npm run dev\""
+    "start": "node index.js"
   },
   "keywords": [
     "npm",
