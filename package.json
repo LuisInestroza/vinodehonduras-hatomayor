@@ -4,7 +4,7 @@
   "description": "Aprendizaje con Node",
   "main": "index.js",
   "scripts": {
-    "start": "node index"
+    "start": "node index.js"
   },
   "keywords": [
     "npm",
