@@ -50,8 +50,7 @@ app.use((error, req, res, next) => {
   });
 });
 
-export default app;
-
+module.exports = app;
 // const host = "0.0.0.0";
 // const port = process.env.PORT;
 
