@@ -108,4 +108,4 @@ public/uploads/cv/*
 public/uploads/perfiles/*
 
 # Omitir las variables de entorno
-variables.env
+#variables.env
