@@ -2,9 +2,9 @@
   "name": "webnode",
   "version": "1.0.0",
   "description": "Aprendizaje con Node",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "keywords": [
     "npm",
