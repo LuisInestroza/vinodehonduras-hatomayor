@@ -40,12 +40,6 @@ app.use((req, res, next) => {
 });
 
 //Errores
-
-// app.use((err, req, res, next) => {
-//   console.error(err.stack);
-//   res.status(500).send("Error interno en el servidor");
-// });
-
 app.use((error, req, res, next) => {
   const status = error.status || 500;
 
