@@ -40,18 +40,22 @@ app.use((req, res, next) => {
 });
 
 //Errores
-app.use((error, req, res, next) => {
-  console.log("ESTOY AQUI");
-  const status = error.status || 500;
-  console.log("AHORA ESTOY AQUI");
 
-  res.locals.status = status;
-  res.status(status);
-  // Mostrar la pagina
-  res.render("error", {
-    message: error.message,
-  });
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Error interno en el servidor");
 });
+// app.use((error, req, res, next) => {
+ 
+//   const status = error.status || 500;
+
+//   res.locals.status = status;
+//   res.status(status);
+//   // Mostrar la pagina
+//   res.render("error", {
+//     message: error.message,
+//   });
+// });
 
 module.exports = app;
 // const host = "0.0.0.0";
