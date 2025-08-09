@@ -14,8 +14,8 @@ require("dotenv").config({
 });
 
 const app = express();
-app.set("views", path.join(__dirname, "..", "views"));
-app.use(express.static(path.join(__dirname, "..", "public")));
+app.set("views", path.join(__dirname, "views"));
+app.use(express.static(path.join(__dirname, "public")));
 app.engine(
   "handlebars",
   expressHDS({
@@ -41,7 +41,10 @@ app.use((req, res, next) => {
 
 //Errores
 app.use((error, req, res, next) => {
+  console.log("ESTOY AQUI");
   const status = error.status || 500;
+  console.log("AHORA ESTOY AQUI");
+
   res.locals.status = status;
   res.status(status);
   // Mostrar la pagina
