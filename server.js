@@ -8,6 +8,7 @@ const expressHDS = require("express-handlebars");
 const passport = require("passport");
 const router = require("./routes/index");
 const crearError = require("http-errors");
+const { ne } = require("sequelize/types/lib/operators");
 
 require("dotenv").config({
   path: ".env",
@@ -20,7 +21,7 @@ app.engine(
   "handlebars",
   expressHDS({
     defaultLayout: "layout",
-  })
+  }),
 );
 
 app.set("view engine", "handlebars");
@@ -49,6 +50,12 @@ app.use((error, req, res, next) => {
   res.render("error", {
     message: error.message,
   });
+});
+app.use((req, res, next) => {
+  if (req.headers.host.startsWith("www.")) {
+    return res.redirect(301, "http://" + req.headers.host.slice(4) + req.url);
+  }
+  next();
 });
 
 module.exports = app;
