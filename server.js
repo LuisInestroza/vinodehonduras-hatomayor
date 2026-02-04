@@ -8,7 +8,6 @@ const expressHDS = require("express-handlebars");
 const passport = require("passport");
 const router = require("./routes/index");
 const crearError = require("http-errors");
-const { ne } = require("sequelize/types/lib/operators");
 
 require("dotenv").config({
   path: ".env",
