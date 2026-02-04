@@ -51,12 +51,6 @@ app.use((error, req, res, next) => {
     message: error.message,
   });
 });
-app.use((req, res, next) => {
-  if (req.headers.host.startsWith("www.")) {
-    return res.redirect(301, "http://" + req.headers.host.slice(4) + req.url);
-  }
-  next();
-});
 
 module.exports = app;
 // const host = "0.0.0.0";
